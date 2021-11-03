@@ -50,7 +50,6 @@
 				CDE365A94E81E70CC12C349A /* Pods-NotBored.debug.xcconfig */,
 				852A86FB07565DFA4421C162 /* Pods-NotBored.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -83,16 +82,24 @@
 		BCA6B1232732FFF800A82BC9 /* NotBored */ = {
 			isa = PBXGroup;
 			children = (
+				BCA6B13C2733148A00A82BC9 /* Login */,
 				BCA6B1242732FFF800A82BC9 /* AppDelegate.swift */,
 				BCA6B1262732FFF800A82BC9 /* SceneDelegate.swift */,
 				BCA6B1282732FFF800A82BC9 /* ViewController.swift */,
 				BCA6B12A2732FFF800A82BC9 /* Main.storyboard */,
 				BCA6B12D2732FFF900A82BC9 /* Assets.xcassets */,
 				BCA6B1322732FFF900A82BC9 /* Info.plist */,
-				BCA6B1382733007B00A82BC9 /* InitialViewController.swift */,
-				BCA6B1392733007B00A82BC9 /* InitialViewController.xib */,
 			);
 			path = NotBored;
+			sourceTree = "<group>";
+		};
+		BCA6B13C2733148A00A82BC9 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				BCA6B1392733007B00A82BC9 /* InitialViewController.xib */,
+				BCA6B1382733007B00A82BC9 /* InitialViewController.swift */,
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
