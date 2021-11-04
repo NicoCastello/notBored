@@ -42,38 +42,20 @@ class InitialViewController: UIViewController, UITextFieldDelegate {
         let participants: Int = Int(inputText) ?? 0
         enabledButton(participants: participants)
     }
-  
-    @IBAction func startButton(_ sender: UIButton) {
-        if participantsTextField.hasText{
-            //let prueba = participantsTextField.text
-            let participantsCount: Int = Int(participantsTextField.text ?? "0") ?? 0
-            if  participantsCount > 0{
-                let vc = ActivityViewController(nibName: "ActivityViewController", bundle: nil)
-                self.present(vc, animated: true)
-            }
-            else{
-                print("La cantidad de participantes debe ser mayor a cero")
-            }
-        }
-        else{
-            print("Por favor ingrese cantidad de participantes")
-        }
-    }
-  
-  func enabledButton(participants: Int) {
+    
+    func enabledButton(participants: Int) {
         if participants <= 0 {
             startButtonOutlet.isEnabled = false
         } else {
             startButtonOutlet.isEnabled = true
-    
+        }
+    }
     // MARK: - Actions
     @IBAction func startActionButton(_ sender: Any) {
-        print(participantsTextField.text ?? "")
+        coordinator?.pushToActivity()
     }
     
     @IBAction func termsActionbutton(_ sender: Any) {
-        self.coordinator?.pushToTermsAndConditions()
+        coordinator?.pushToTermsAndConditions()
     }
-    
-    
 }

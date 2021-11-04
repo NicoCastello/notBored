@@ -32,4 +32,11 @@ class MainAppCoordinator: CoordinatorProtocol {
     func pushToBackView() {
         self.navigationController.popViewController(animated: true)
     }
+    
+    func pushToActivity() {
+        let viewController = ActivityViewController()
+        viewController.coordinator = self
+        self.navigationController.navigationBar.topItem!.title = "Home"
+        self.navigationController.pushViewController(viewController, animated: true)
+    }
 }

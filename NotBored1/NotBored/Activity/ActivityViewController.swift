@@ -24,12 +24,24 @@ class ActivityViewController: UIViewController, UITableViewDataSource, UITableVi
     @IBOutlet weak var activitiesTableView: UITableView!
     private var imageName: String = ""
     private var activityTitle: String = ""
+    weak var coordinator: MainAppCoordinator?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configTitle()
         configTableView()
     }
-
+    
+    private func configTitle() {
+        self.title = "Activity"
+        let rightButton = UIBarButtonItem(title: "", style: .plain, target: self, action: #selector(addTapped))
+        rightButton.image = UIImage(systemName: "shuffle")
+        self.navigationItem.rightBarButtonItem = rightButton
+    }
+    
+    @objc func addTapped() {
+        print("Hola")
+    }
     private func configTableView() {
         activitiesTableView.dataSource = self
         activitiesTableView.delegate = self
