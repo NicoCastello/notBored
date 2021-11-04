@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -11,8 +11,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="InitialViewController" customModule="NotBored" customModuleProvider="target">
             <connections>
+                <outlet property="acceptTermsLabel" destination="I6A-z2-c99" id="7A8-M2-Agq"/>
                 <outlet property="participantsTextField" destination="EVV-CP-28W" id="VSY-Fp-pjc"/>
                 <outlet property="startButtonOutlet" destination="WPx-QF-swK" id="ohk-Hd-ety"/>
+                <outlet property="toggleSwitch" destination="CY6-Lb-1Ox" id="Iy4-Uu-rEw"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -68,6 +70,25 @@
                         <action selector="termsActionbutton:" destination="-1" eventType="touchUpInside" id="zSk-sK-q3l"/>
                     </connections>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Accept terms and conditions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I6A-z2-c99">
+                    <rect key="frame" x="27" y="810" width="297" height="19"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CY6-Lb-1Ox">
+                    <rect key="frame" x="329" y="804" width="51" height="31"/>
+                    <connections>
+                        <action selector="toggleAction:" destination="-1" eventType="valueChanged" id="nEY-bA-5cM"/>
+                    </connections>
+                </switch>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="appIcon" translatesAutoresizingMaskIntoConstraints="NO" id="P1i-zA-BXT">
+                    <rect key="frame" x="132" y="163" width="150" height="150"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="P1i-zA-BXT" secondAttribute="height" multiplier="1:1" id="Zf8-OO-Mzk"/>
+                        <constraint firstAttribute="width" constant="150" id="ilR-SB-MP9"/>
+                    </constraints>
+                </imageView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -75,22 +96,32 @@
                 <constraint firstItem="Pzn-U0-KKd" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="27" id="26U-8n-5aD"/>
                 <constraint firstItem="jjp-7z-t3q" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="61" id="2Oq-za-5CF"/>
                 <constraint firstItem="Pzn-U0-KKd" firstAttribute="top" secondItem="WPx-QF-swK" secondAttribute="bottom" constant="17.5" id="76A-Wi-M02"/>
+                <constraint firstItem="CY6-Lb-1Ox" firstAttribute="top" secondItem="Pzn-U0-KKd" secondAttribute="bottom" constant="49" id="B3B-KJ-DvD"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Pzn-U0-KKd" secondAttribute="trailing" constant="36" id="Bo8-Wf-D72"/>
                 <constraint firstItem="ACh-5K-GYm" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="27" id="Jvt-gc-MYc"/>
+                <constraint firstItem="I6A-z2-c99" firstAttribute="leading" secondItem="Pzn-U0-KKd" secondAttribute="leading" id="LYt-tt-WpY"/>
                 <constraint firstItem="EVV-CP-28W" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="27" id="Ltf-Lt-b9K"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="CY6-Lb-1Ox" secondAttribute="trailing" constant="36" id="Mdf-4g-te4"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="EVV-CP-28W" secondAttribute="trailing" constant="36" id="POF-le-oUr"/>
                 <constraint firstItem="EVV-CP-28W" firstAttribute="top" secondItem="ACh-5K-GYm" secondAttribute="bottom" constant="23" id="STM-mT-OoV"/>
+                <constraint firstItem="I6A-z2-c99" firstAttribute="top" secondItem="Pzn-U0-KKd" secondAttribute="bottom" constant="55" id="TNA-bj-XdB"/>
                 <constraint firstItem="jjp-7z-t3q" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="Ybt-mr-UP9"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Pzn-U0-KKd" secondAttribute="bottom" constant="107" id="a9J-k6-ABf"/>
-                <constraint firstItem="ACh-5K-GYm" firstAttribute="top" secondItem="jjp-7z-t3q" secondAttribute="bottom" constant="200" id="jVE-1x-gsv"/>
+                <constraint firstItem="CY6-Lb-1Ox" firstAttribute="leading" secondItem="I6A-z2-c99" secondAttribute="trailing" constant="5" id="ey7-D6-Lft"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="P1i-zA-BXT" secondAttribute="trailing" constant="132" id="fyY-kT-2Xn"/>
+                <constraint firstItem="P1i-zA-BXT" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="132" id="h7b-Bn-N9i"/>
+                <constraint firstItem="P1i-zA-BXT" firstAttribute="top" secondItem="jjp-7z-t3q" secondAttribute="bottom" constant="8" symbolic="YES" id="jiM-Un-9OW"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ACh-5K-GYm" secondAttribute="trailing" constant="36" id="lsY-Ok-cSk"/>
                 <constraint firstItem="WPx-QF-swK" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="27" id="qtG-qb-TJB"/>
+                <constraint firstItem="ACh-5K-GYm" firstAttribute="top" secondItem="P1i-zA-BXT" secondAttribute="bottom" constant="42" id="sPr-Te-Bgf"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="WPx-QF-swK" secondAttribute="trailing" constant="36" id="vK4-l8-tky"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="CY6-Lb-1Ox" secondAttribute="bottom" constant="27" id="ymU-ws-BXM"/>
             </constraints>
             <point key="canvasLocation" x="131.8840579710145" y="99.776785714285708"/>
         </view>
     </objects>
     <resources>
+        <image name="appIcon" width="512" height="512"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

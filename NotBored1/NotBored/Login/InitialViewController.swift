@@ -11,14 +11,23 @@ class InitialViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var startButtonOutlet: UIButton!
     @IBOutlet weak var participantsTextField: UITextField!
+    @IBOutlet weak var toggleSwitch: UISwitch!
+    @IBOutlet weak var acceptTermsLabel: UILabel!
+    
     var participants: Int = 1
+    var acceptTermsAndConditions: Bool?
     weak var coordinator: MainAppCoordinator?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        configDismissBoard()
         participantsTextField.delegate = self
         participantsTextField.text = String(participants)
+        configDismissBoard()
+        setView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        setView()
     }
     
     func configDismissBoard(){
@@ -29,6 +38,34 @@ class InitialViewController: UIViewController, UITextFieldDelegate {
 
     @objc func dismissKeyboard() {
         view.endEditing(true)
+    }
+    
+    func setView() {
+        acceptTermsAndConditions = UserDefaults.standard.bool(forKey: "acceptTerms")
+        if let accept = acceptTermsAndConditions {
+            startButtonOutlet.isEnabled = accept
+            if accept {
+                toggleSwitch.isHidden = true
+                acceptTermsLabel.isHidden = true
+            } else {
+                toggleSwitch.isOn = false
+            }
+        } else {
+            toggleSwitch.isOn = false
+        }
+    }
+    
+    func setToggleSwitch(acceptTermsAndConditions: Bool) {
+        let defaults = UserDefaults.standard
+        defaults.set(acceptTermsAndConditions, forKey: "acceptTerms")
+    }
+    
+    func enabledButton(participants: Int) {
+        if participants <= 0 {
+            startButtonOutlet.isEnabled = false
+        } else {
+            startButtonOutlet.isEnabled = true
+        }
     }
     
     // MARK: - UITextFieldDelegate
@@ -43,13 +80,6 @@ class InitialViewController: UIViewController, UITextFieldDelegate {
         enabledButton(participants: participants)
     }
     
-    func enabledButton(participants: Int) {
-        if participants <= 0 {
-            startButtonOutlet.isEnabled = false
-        } else {
-            startButtonOutlet.isEnabled = true
-        }
-    }
     // MARK: - Actions
     @IBAction func startActionButton(_ sender: Any) {
         coordinator?.pushToActivity(participants: participants)
@@ -58,4 +88,10 @@ class InitialViewController: UIViewController, UITextFieldDelegate {
     @IBAction func termsActionbutton(_ sender: Any) {
         coordinator?.pushToTermsAndConditions()
     }
+    
+    @IBAction func toggleAction(_ sender: Any) {
+        startButtonOutlet.isEnabled = toggleSwitch.isOn
+        setToggleSwitch(acceptTermsAndConditions: toggleSwitch.isOn)
+    }
+    
 }
