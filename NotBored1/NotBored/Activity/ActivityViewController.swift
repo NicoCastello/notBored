@@ -88,10 +88,4 @@ class ActivityViewController: UIViewController, UITableViewDataSource, UITableVi
         cell.populate(activityImageName: imageName, activityTitle: activityTitle)
         return cell
     }
-    
-    
-    
-    
-
-
 }
