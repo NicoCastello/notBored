@@ -18,6 +18,11 @@
 		BCA6B12E2732FFF900A82BC9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BCA6B12D2732FFF900A82BC9 /* Assets.xcassets */; };
 		BCA6B13A2733007B00A82BC9 /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA6B1382733007B00A82BC9 /* InitialViewController.swift */; };
 		BCA6B13B2733007B00A82BC9 /* InitialViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCA6B1392733007B00A82BC9 /* InitialViewController.xib */; };
+		BCA6B1402733236100A82BC9 /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA6B13E2733236100A82BC9 /* ActivityViewController.swift */; };
+		BCA6B1412733236100A82BC9 /* ActivityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCA6B13F2733236100A82BC9 /* ActivityViewController.xib */; };
+		BCA6B1432733280600A82BC9 /* ActivitiesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA6B1422733280600A82BC9 /* ActivitiesModel.swift */; };
+		BCA6B14B27332C6C00A82BC9 /* ActivityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA6B14927332C6C00A82BC9 /* ActivityTableViewCell.swift */; };
+		BCA6B14C27332C6C00A82BC9 /* ActivityTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCA6B14A27332C6C00A82BC9 /* ActivityTableViewCell.xib */; };
 		D6D1E2E3327179F6616E2FA6 /* Pods_NotBored.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C38A73320872987C740C607A /* Pods_NotBored.framework */; };
 /* End PBXBuildFile section */
 
@@ -36,6 +41,11 @@
 		BCA6B1322732FFF900A82BC9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BCA6B1382733007B00A82BC9 /* InitialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
 		BCA6B1392733007B00A82BC9 /* InitialViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InitialViewController.xib; sourceTree = "<group>"; };
+		BCA6B13E2733236100A82BC9 /* ActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
+		BCA6B13F2733236100A82BC9 /* ActivityViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActivityViewController.xib; sourceTree = "<group>"; };
+		BCA6B1422733280600A82BC9 /* ActivitiesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivitiesModel.swift; sourceTree = "<group>"; };
+		BCA6B14927332C6C00A82BC9 /* ActivityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityTableViewCell.swift; sourceTree = "<group>"; };
+		BCA6B14A27332C6C00A82BC9 /* ActivityTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActivityTableViewCell.xib; sourceTree = "<group>"; };
 		C38A73320872987C740C607A /* Pods_NotBored.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NotBored.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDE365A94E81E70CC12C349A /* Pods-NotBored.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NotBored.debug.xcconfig"; path = "Target Support Files/Pods-NotBored/Pods-NotBored.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -108,6 +118,7 @@
 		BCA6B1232732FFF800A82BC9 /* NotBored */ = {
 			isa = PBXGroup;
 			children = (
+				BCA6B13D273321F600A82BC9 /* Activity */,
 				5020E1CF273325A4003DF430 /* termsAndConditions */,
 				BCA6B13C2733148A00A82BC9 /* Login */,
 				5020E1CA27332253003DF430 /* Coordinator */,
@@ -128,6 +139,26 @@
 				BCA6B1382733007B00A82BC9 /* InitialViewController.swift */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		BCA6B13D273321F600A82BC9 /* Activity */ = {
+			isa = PBXGroup;
+			children = (
+				BCA6B14427332BA700A82BC9 /* Cell Activities */,
+				BCA6B13E2733236100A82BC9 /* ActivityViewController.swift */,
+				BCA6B13F2733236100A82BC9 /* ActivityViewController.xib */,
+				BCA6B1422733280600A82BC9 /* ActivitiesModel.swift */,
+			);
+			path = Activity;
+			sourceTree = "<group>";
+		};
+		BCA6B14427332BA700A82BC9 /* Cell Activities */ = {
+			isa = PBXGroup;
+			children = (
+				BCA6B14927332C6C00A82BC9 /* ActivityTableViewCell.swift */,
+				BCA6B14A27332C6C00A82BC9 /* ActivityTableViewCell.xib */,
+			);
+			path = "Cell Activities";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -193,7 +224,9 @@
 				5020E1D3273325CD003DF430 /* TermsAndConditionsViewController.xib in Resources */,
 				BCA6B12E2732FFF900A82BC9 /* Assets.xcassets in Resources */,
 				BCA6B12C2732FFF800A82BC9 /* Main.storyboard in Resources */,
+				BCA6B14C27332C6C00A82BC9 /* ActivityTableViewCell.xib in Resources */,
 				BCA6B13B2733007B00A82BC9 /* InitialViewController.xib in Resources */,
+				BCA6B1412733236100A82BC9 /* ActivityViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -246,10 +279,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BCA6B1432733280600A82BC9 /* ActivitiesModel.swift in Sources */,
 				BCA6B1292732FFF800A82BC9 /* ViewController.swift in Sources */,
 				5020E1CE2733235E003DF430 /* MainAppCoordinator.swift in Sources */,
 				BCA6B1252732FFF800A82BC9 /* AppDelegate.swift in Sources */,
 				BCA6B1272732FFF800A82BC9 /* SceneDelegate.swift in Sources */,
+				BCA6B14B27332C6C00A82BC9 /* ActivityTableViewCell.swift in Sources */,
+				BCA6B1402733236100A82BC9 /* ActivityViewController.swift in Sources */,
 				5020E1CC27332285003DF430 /* CoordinatorProtocol.swift in Sources */,
 				5020E1D2273325CD003DF430 /* TermsAndConditionsViewController.swift in Sources */,
 				BCA6B13A2733007B00A82BC9 /* InitialViewController.swift in Sources */,
