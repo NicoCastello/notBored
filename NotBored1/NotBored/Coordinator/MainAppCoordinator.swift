@@ -29,7 +29,7 @@ class MainAppCoordinator: CoordinatorProtocol {
         self.navigationController.pushViewController(viewController, animated: true)
     }
     
-    func pushToBackView() {
+    func pushToRootView() {
         self.navigationController.popToRootViewController(animated: true)
         self.navigationController.setNavigationBarHidden(false, animated: false)
     }

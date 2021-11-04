@@ -30,7 +30,7 @@ class SuggestionModel {
     func getActivity(completion: @escaping(ActivitySuggestion?) -> Void) {
         var url = ""
         if activity == "Random" {
-            url = makeURL(url: "/")
+            url = makeURL(url: "?participants=\(participants)")
         } else {
             url = makeURL(url: "?type=\(activity.lowercased())&participants=\(participants)")
         }
@@ -40,7 +40,7 @@ class SuggestionModel {
                 let activities = try JSONDecoder().decode(ActivitySuggestion.self, from: data.data!)
                 completion(activities)
             } catch {
-                print(error)
+               completion(nil)
             }
         })
     }

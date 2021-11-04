@@ -45,13 +45,21 @@ class SuggestionViewController: UIViewController {
         activityIndicator.startAnimating()
         activityIndicator.isHidden = false
         model.getActivity(completion: { [weak self] activity in
-            self?.titleLabel?.text = activity?.activity
-            self?.participantsLabel.text = "Participants:"
-            self?.countParticipantsLabel.text = String(activity?.participants ?? 0)
-            self?.priceImage.image = UIImage(systemName: "dollarsign.circle")
-            self?.participantsImage.image = UIImage(systemName: "person")
-            self?.priceLabel.text = "Price: "
-            self?.priceLevelLabel.text = self?.amountLevel(value: activity?.price ?? 0)
+            if let activity = activity {
+                self?.titleLabel?.text = activity.activity
+                self?.participantsLabel.text = "Participants:"
+                self?.countParticipantsLabel.text = String(activity.participants)
+                self?.priceImage.image = UIImage(systemName: "dollarsign.circle")
+                self?.participantsImage.image = UIImage(systemName: "person")
+                self?.priceLabel.text = "Price: "
+                self?.priceLevelLabel.text = self?.amountLevel(value: activity.price)
+            } else {
+                let alert = UIAlertController(title: "Error", message: "No se encontraron actividades para esta categoria y cantidad de usuarios", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak self] _ in
+                    self?.coordinator?.pushToRootView()
+                }))
+                self?.present(alert, animated: true)
+            }
             self?.activityIndicator.stopAnimating()
             self?.activityIndicator.isHidden = true
         })

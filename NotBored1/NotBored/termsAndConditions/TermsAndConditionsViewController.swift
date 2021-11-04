@@ -39,7 +39,7 @@ class TermsAndConditionsViewController: UIViewController {
     }
     
     @IBAction func closeButtonAction(_ sender: Any) {
-        coordinator?.pushToBackView()
+        coordinator?.pushToRootView()
     }
     
 }
