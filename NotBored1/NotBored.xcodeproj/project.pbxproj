@@ -11,6 +11,9 @@
 		5020E1CE2733235E003DF430 /* MainAppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5020E1CD2733235E003DF430 /* MainAppCoordinator.swift */; };
 		5020E1D2273325CD003DF430 /* TermsAndConditionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5020E1D0273325CD003DF430 /* TermsAndConditionsViewController.swift */; };
 		5020E1D3273325CD003DF430 /* TermsAndConditionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5020E1D1273325CD003DF430 /* TermsAndConditionsViewController.xib */; };
+		5020E1D727342501003DF430 /* SuggestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5020E1D527342501003DF430 /* SuggestionViewController.swift */; };
+		5020E1D827342501003DF430 /* SuggestionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5020E1D627342501003DF430 /* SuggestionViewController.xib */; };
+		5020E1DA27342D29003DF430 /* SuggestionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5020E1D927342D29003DF430 /* SuggestionViewModel.swift */; };
 		BCA6B1252732FFF800A82BC9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA6B1242732FFF800A82BC9 /* AppDelegate.swift */; };
 		BCA6B1272732FFF800A82BC9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA6B1262732FFF800A82BC9 /* SceneDelegate.swift */; };
 		BCA6B1292732FFF800A82BC9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA6B1282732FFF800A82BC9 /* ViewController.swift */; };
@@ -31,6 +34,9 @@
 		5020E1CD2733235E003DF430 /* MainAppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAppCoordinator.swift; sourceTree = "<group>"; };
 		5020E1D0273325CD003DF430 /* TermsAndConditionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsAndConditionsViewController.swift; sourceTree = "<group>"; };
 		5020E1D1273325CD003DF430 /* TermsAndConditionsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TermsAndConditionsViewController.xib; sourceTree = "<group>"; };
+		5020E1D527342501003DF430 /* SuggestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionViewController.swift; sourceTree = "<group>"; };
+		5020E1D627342501003DF430 /* SuggestionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SuggestionViewController.xib; sourceTree = "<group>"; };
+		5020E1D927342D29003DF430 /* SuggestionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionViewModel.swift; sourceTree = "<group>"; };
 		852A86FB07565DFA4421C162 /* Pods-NotBored.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NotBored.release.xcconfig"; path = "Target Support Files/Pods-NotBored/Pods-NotBored.release.xcconfig"; sourceTree = "<group>"; };
 		BCA6B1212732FFF800A82BC9 /* NotBored.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NotBored.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCA6B1242732FFF800A82BC9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -89,6 +95,16 @@
 			path = termsAndConditions;
 			sourceTree = "<group>";
 		};
+		5020E1D4273424D4003DF430 /* Suggestion */ = {
+			isa = PBXGroup;
+			children = (
+				5020E1D527342501003DF430 /* SuggestionViewController.swift */,
+				5020E1D927342D29003DF430 /* SuggestionViewModel.swift */,
+				5020E1D627342501003DF430 /* SuggestionViewController.xib */,
+			);
+			path = Suggestion;
+			sourceTree = "<group>";
+		};
 		A20ACEA051B52A02AA522A1B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -118,6 +134,7 @@
 		BCA6B1232732FFF800A82BC9 /* NotBored */ = {
 			isa = PBXGroup;
 			children = (
+				5020E1D4273424D4003DF430 /* Suggestion */,
 				BCA6B13D273321F600A82BC9 /* Activity */,
 				5020E1CF273325A4003DF430 /* termsAndConditions */,
 				BCA6B13C2733148A00A82BC9 /* Login */,
@@ -223,6 +240,7 @@
 			files = (
 				5020E1D3273325CD003DF430 /* TermsAndConditionsViewController.xib in Resources */,
 				BCA6B12E2732FFF900A82BC9 /* Assets.xcassets in Resources */,
+				5020E1D827342501003DF430 /* SuggestionViewController.xib in Resources */,
 				BCA6B12C2732FFF800A82BC9 /* Main.storyboard in Resources */,
 				BCA6B14C27332C6C00A82BC9 /* ActivityTableViewCell.xib in Resources */,
 				BCA6B13B2733007B00A82BC9 /* InitialViewController.xib in Resources */,
@@ -287,8 +305,10 @@
 				BCA6B14B27332C6C00A82BC9 /* ActivityTableViewCell.swift in Sources */,
 				BCA6B1402733236100A82BC9 /* ActivityViewController.swift in Sources */,
 				5020E1CC27332285003DF430 /* CoordinatorProtocol.swift in Sources */,
+				5020E1DA27342D29003DF430 /* SuggestionViewModel.swift in Sources */,
 				5020E1D2273325CD003DF430 /* TermsAndConditionsViewController.swift in Sources */,
 				BCA6B13A2733007B00A82BC9 /* InitialViewController.swift in Sources */,
+				5020E1D727342501003DF430 /* SuggestionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

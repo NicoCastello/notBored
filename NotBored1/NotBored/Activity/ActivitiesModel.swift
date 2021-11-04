@@ -7,4 +7,14 @@
 
 import Foundation
 
-
+class ActivitiesModel {
+    let activities = ["Education",
+                      "Recreational",
+                      "Social",
+                      "Diy",
+                      "Charity",
+                      "Cooking",
+                      "Relaxation",
+                      "Music",
+                      "Busywork"]
+}

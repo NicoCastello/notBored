@@ -34,10 +34,20 @@ class MainAppCoordinator: CoordinatorProtocol {
         self.navigationController.setNavigationBarHidden(false, animated: false)
     }
     
-    func pushToActivity() {
+    func pushToActivity(participants: Int) {
         let viewController = ActivityViewController()
         viewController.coordinator = self
-        self.navigationController.navigationBar.topItem!.title = "Home"
+        viewController.participants = participants
+        self.navigationController.navigationBar.topItem!.title = ""
+        self.navigationController.pushViewController(viewController, animated: true)
+    }
+    
+    func pushToSuggestion(participants: Int, activity: String) {
+        let viewController = SuggestionViewController()
+        viewController.coordinator = self
+        viewController.participants = participants
+        viewController.activity = activity
+        self.navigationController.navigationBar.topItem!.title = "Activity"
         self.navigationController.pushViewController(viewController, animated: true)
     }
 }

@@ -24,15 +24,18 @@ class ActivityViewController: UIViewController, UITableViewDataSource, UITableVi
     @IBOutlet weak var activitiesTableView: UITableView!
     private var imageName: String = ""
     private var activityTitle: String = ""
+    var participants: Int = 0
+    private var viewModel: ActivitiesModel?
     weak var coordinator: MainAppCoordinator?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configTitle()
+        viewModel = ActivitiesModel()
+        configNavBar()
         configTableView()
     }
     
-    private func configTitle() {
+    private func configNavBar() {
         self.title = "Activity"
         let rightButton = UIBarButtonItem(title: "", style: .plain, target: self, action: #selector(addTapped))
         rightButton.image = UIImage(systemName: "shuffle")
@@ -40,7 +43,7 @@ class ActivityViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     @objc func addTapped() {
-        print("Hola")
+        coordinator?.pushToSuggestion(participants: participants, activity: "Random")
     }
     private func configTableView() {
         activitiesTableView.dataSource = self
@@ -49,43 +52,44 @@ class ActivityViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Activities.allCases.count
+        guard let model = viewModel else { return 0 }
+        return model.activities.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let model = viewModel else { return UITableViewCell() }
         let cell = tableView.dequeueReusableCell(withIdentifier: "ActivityTableViewCell") as! ActivityTableViewCell
+        
         switch indexPath.row {
         case Activities.education.rawValue:
             imageName = "graduationcap"
-            activityTitle = "Education"
         case Activities.recreational.rawValue:
             imageName = "highlighter"
-            activityTitle = "Recreational"
         case Activities.social.rawValue:
             imageName = "person.2.fill"
-            activityTitle = "Social"
         case Activities.diy.rawValue:
             imageName = "pencil"
-            activityTitle = "Diy"
         case Activities.charity.rawValue:
             imageName = "gift"
-            activityTitle = "Charity"
         case Activities.cooking.rawValue:
             imageName = "fork.knife"
-            activityTitle = "Cooking"
         case Activities.relaxation.rawValue:
             imageName = "gamecontroller"
-            activityTitle = "Relaxation"
         case Activities.music.rawValue:
             imageName = "music.note"
-            activityTitle = "Music"
         case Activities.busywork.rawValue:
             imageName = "desktopcomputer"
-            activityTitle = "Busywork"
         default:
-            break
+            imageName = "info.circle"
         }
-        cell.populate(activityImageName: imageName, activityTitle: activityTitle)
+        cell.populate(activityImageName: imageName, activityTitle: model.activities[indexPath.row])
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let model = viewModel else { return }
+        let activity = model.activities[indexPath.row]
+        coordinator?.pushToSuggestion(participants: participants, activity: activity)
+        
     }
 }

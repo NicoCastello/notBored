@@ -11,14 +11,14 @@ class InitialViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var startButtonOutlet: UIButton!
     @IBOutlet weak var participantsTextField: UITextField!
-    
+    var participants: Int = 1
     weak var coordinator: MainAppCoordinator?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         configDismissBoard()
         participantsTextField.delegate = self
-        participantsTextField.text = "1"
+        participantsTextField.text = String(participants)
     }
     
     func configDismissBoard(){
@@ -39,7 +39,7 @@ class InitialViewController: UIViewController, UITextFieldDelegate {
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         let inputText = participantsTextField.text ?? ""
-        let participants: Int = Int(inputText) ?? 0
+        participants = Int(inputText) ?? 0
         enabledButton(participants: participants)
     }
     
@@ -52,7 +52,7 @@ class InitialViewController: UIViewController, UITextFieldDelegate {
     }
     // MARK: - Actions
     @IBAction func startActionButton(_ sender: Any) {
-        coordinator?.pushToActivity()
+        coordinator?.pushToActivity(participants: participants)
     }
     
     @IBAction func termsActionbutton(_ sender: Any) {
