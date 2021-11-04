@@ -59,36 +59,14 @@ class ActivityViewController: UIViewController, UITableViewDataSource, UITableVi
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let model = viewModel else { return UITableViewCell() }
         let cell = tableView.dequeueReusableCell(withIdentifier: "ActivityTableViewCell") as! ActivityTableViewCell
-        
-        switch indexPath.row {
-        case Activities.education.rawValue:
-            imageName = "graduationcap"
-        case Activities.recreational.rawValue:
-            imageName = "highlighter"
-        case Activities.social.rawValue:
-            imageName = "person.2.fill"
-        case Activities.diy.rawValue:
-            imageName = "pencil"
-        case Activities.charity.rawValue:
-            imageName = "gift"
-        case Activities.cooking.rawValue:
-            imageName = "fork.knife"
-        case Activities.relaxation.rawValue:
-            imageName = "gamecontroller"
-        case Activities.music.rawValue:
-            imageName = "music.note"
-        case Activities.busywork.rawValue:
-            imageName = "desktopcomputer"
-        default:
-            imageName = "info.circle"
-        }
-        cell.populate(activityImageName: imageName, activityTitle: model.activities[indexPath.row])
+    
+        cell.populate(activityImageName: model.activities[indexPath.row].image, activityTitle: model.activities[indexPath.row].title)
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let model = viewModel else { return }
-        let activity = model.activities[indexPath.row]
+        let activity = model.activities[indexPath.row].title
         coordinator?.pushToSuggestion(participants: participants, activity: activity)
         
     }

@@ -45,23 +45,26 @@ class SuggestionViewController: UIViewController {
         activityIndicator.startAnimating()
         activityIndicator.isHidden = false
         model.getActivity(completion: { [weak self] activity in
-            if let activity = activity {
-                self?.titleLabel?.text = activity.activity
-                self?.participantsLabel.text = "Participants:"
-                self?.countParticipantsLabel.text = String(activity.participants)
-                self?.priceImage.image = UIImage(systemName: "dollarsign.circle")
-                self?.participantsImage.image = UIImage(systemName: "person")
-                self?.priceLabel.text = "Price: "
-                self?.priceLevelLabel.text = self?.amountLevel(value: activity.price)
-            } else {
-                let alert = UIAlertController(title: "Error", message: "No se encontraron actividades para esta categoria y cantidad de usuarios", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak self] _ in
-                    self?.coordinator?.pushToRootView()
-                }))
-                self?.present(alert, animated: true)
+            DispatchQueue.main.async {
+            guard let mySelf = self else { return }
+                if let activity = activity {
+                    mySelf.titleLabel?.text = activity.activity
+                    mySelf.participantsLabel.text = "Participants:"
+                    mySelf.countParticipantsLabel.text = String(activity.participants)
+                    mySelf.priceImage.image = UIImage(systemName: "dollarsign.circle")
+                    mySelf.participantsImage.image = UIImage(systemName: "person")
+                    mySelf.priceLabel.text = "Price: "
+                    mySelf.priceLevelLabel.text = self?.amountLevel(value: activity.price)
+                } else {
+                    let alert = UIAlertController(title: "Error", message: "No se encontraron actividades para esta categoria y cantidad de usuarios", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
+                        mySelf.coordinator?.pushToRootView()
+                    }))
+                    mySelf.present(alert, animated: true)
+                }
+                mySelf.activityIndicator.stopAnimating()
+                mySelf.activityIndicator.isHidden = true
             }
-            self?.activityIndicator.stopAnimating()
-            self?.activityIndicator.isHidden = true
         })
     }
     
