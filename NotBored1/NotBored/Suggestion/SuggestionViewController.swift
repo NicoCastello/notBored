@@ -33,11 +33,13 @@ class SuggestionViewController: UIViewController {
     }
     
     private func configView() {
-        participantsLabel.text = ""
+        participantsLabel.text = "Participants:"
+        priceLabel.text = "Price: "
         titleLabel.text = ""
         priceLevelLabel.text = ""
         countParticipantsLabel.text = ""
-        priceLabel.text = ""
+        priceImage.image = UIImage(systemName: "dollarsign.circle")
+        participantsImage.image = UIImage(systemName: "person")
     }
     
     private func getActivity() {
@@ -49,23 +51,23 @@ class SuggestionViewController: UIViewController {
             guard let mySelf = self else { return }
                 if let activity = activity {
                     mySelf.titleLabel?.text = activity.activity
-                    mySelf.participantsLabel.text = "Participants:"
                     mySelf.countParticipantsLabel.text = String(activity.participants)
-                    mySelf.priceImage.image = UIImage(systemName: "dollarsign.circle")
-                    mySelf.participantsImage.image = UIImage(systemName: "person")
-                    mySelf.priceLabel.text = "Price: "
                     mySelf.priceLevelLabel.text = self?.amountLevel(value: activity.price)
                 } else {
-                    let alert = UIAlertController(title: "Error", message: "No se encontraron actividades para esta categoria y cantidad de usuarios", preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
-                        mySelf.coordinator?.pushToRootView()
-                    }))
-                    mySelf.present(alert, animated: true)
+                    mySelf.showAlert()
                 }
                 mySelf.activityIndicator.stopAnimating()
                 mySelf.activityIndicator.isHidden = true
             }
         })
+    }
+    
+    private func showAlert() {
+        let alert = UIAlertController(title: "Error", message: "No se encontraron actividades para esta categoria y cantidad de usuarios", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: {[weak self] _ in
+            self?.coordinator?.pushToRootView()
+        }))
+        self.present(alert, animated: true)
     }
     
     private func configNavBar() {
