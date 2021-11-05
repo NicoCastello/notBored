@@ -52,6 +52,7 @@ class InitialViewController: UIViewController, UITextFieldDelegate {
             }
         } else {
             toggleSwitch.isOn = false
+            startButtonOutlet.isEnabled = false 
         }
     }
     
